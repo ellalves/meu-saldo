@@ -1,9 +1,9 @@
 {
   "name": "my_shopping",
   "version": "0.0.1",
-  "description": "A Quasar Framework app",
+  "description": "App para controle de compras no mercado!",
   "productName": "Minhas compras",
-  "cordovaId": "org.cordova.quasar.app",
+  "cordovaId": "br.com.webxpertise.minhascompras.app",
   "author": "ellalves <ellalves@hotmail.com.br>",
   "private": true,
   "scripts": {
@@ -12,12 +12,15 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.1.2",
-    "axios": "^0.18.0",
-    "quasar": "^1.0.0-beta.20",
-    "vue-i18n": "^7.3.3"
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
+    "moment": "^2.24.0",
+    "quasar": "^1.0.0-rc.4",
+    "vue-i18n": "^7.3.3",
+    "vuelidate": "^0.7.4"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0-beta.22",
+    "@quasar/app": "^1.0.0-rc.6",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.10.0",

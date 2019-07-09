@@ -99,7 +99,7 @@ export default {
     this.image = this.me.image
   },
 
-  montado () {
+  mounted () {
     document.addEventListener('deviceready', this.onDeviceReady, false)
   },
 

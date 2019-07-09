@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
+import auth from './auth'
+import carts from './carts'
+import marks from './marks'
 import products from './products'
+import markets from './markets'
 
 Vue.use(Vuex)
 
@@ -12,7 +16,12 @@ Vue.use(Vuex)
 
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
+    namespaced: true,
     modules: {
+      auth,
+      carts,
+      marks,
+      markets,
       products
     },
 
