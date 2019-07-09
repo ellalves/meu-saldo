@@ -6,7 +6,10 @@ module.exports = function (ctx) {
     // --> boot files are part of "main.js"
     boot: [
       'i18n',
-      'axios'
+      'axios',
+      'sqlite',
+      'vuelidate',
+      'ga'
     ],
 
     css: [
@@ -15,10 +18,10 @@ module.exports = function (ctx) {
 
     extras: [
       'roboto-font',
-      'material-icons' // optional, you are not bound to it
+      'material-icons', // optional, you are not bound to it
       // 'ionicons-v4',
       // 'mdi-v3',
-      // 'fontawesome-v5',
+      'fontawesome-v5'
       // 'eva-icons'
     ],
 
@@ -43,24 +46,47 @@ module.exports = function (ctx) {
         'QItem',
         'QItemSection',
         'QItemLabel',
+        'QExpansionItem',
         'QImg',
         'QDialog',
         'QCard',
         'QCardSection',
+        'QCardActions',
         'QForm',
         'QInput',
+        'QSelect',
+        'QRadio',
+        'QOptionGroup',
+        'QBtnToggle',
+        'QCheckbox',
+        'QEditor',
         'QSpace',
+        'QScrollArea',
+        'QBadge',
+        'QBar',
+        'QTooltip',
+        'QToggle',
+        'QInfiniteScroll',
+        'QSpinnerDots',
+        'QPageScroller',
+        'QSlider',
+        'QSeparator',
+        'QPagination',
         'QFooter'
       ],
 
       directives: [
         'Ripple',
-        'ClosePopup'
+        'ClosePopup',
+        'GoBack',
+        'TouchSwipe'
       ],
 
       // Quasar plugins
       plugins: [
-        'Notify'
+        'Notify',
+        'LocalStorage',
+        'SessionStorage'
       ]
 
       // iconSet: 'ionicons-v4'
@@ -141,7 +167,7 @@ module.exports = function (ctx) {
     },
 
     cordova: {
-      // id: 'org.cordova.quasar.app'
+      id: 'br.com.webxpertise.minhascompras.app'
       // noIosLegacyBuildFlag: true // uncomment only if you know what you are doing
     },
 

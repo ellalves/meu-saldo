@@ -1,7 +1,37 @@
 <template>
-  <q-page class="flex flex-center">
-    <div>IMEI <br> {{IMEI}}</div>
-    <img alt="Quasar logo" src="~assets/quasar-logo-full.svg">
+  <q-page>
+    <p class='q-pa-md'>
+      Fazer suas compras está mais fácil com o aplicativo MINHAS COMPRAS. Nele você pode:
+      <ul>
+        <li> Cadastrar usuários;</li>
+        <li> Cadastrar e editar produtos;</li>
+        <li> Cadastrar e editar marca de produtos;</li>
+        <li> Cadastrar e editar lojas;</li>
+        <li> Criar e excluir listas de products.</li>
+      </ul>
+      Agora, você consegue saber quanto vai pagar pela suas compras ao chegar ao caixa!
+    </p>
+      <strong class='q-pa-md'>
+        Regra de uso
+      </strong>
+    <p class='q-pa-md'>
+      Para ter uma melhor experiência com nosso app, siga os passos seguintes:
+      <ol>
+        <li>cadastre um usuário</li>
+        <li>efetur o login com os dados que você cadastrou!</li>
+        <li>cadastre as marcas dos produtos</li>
+        <li>cadastre os produtos</li>
+        <li>cadastre as lojas</li>
+        <li>Feito isso, crie uma lista e logo após clique na lista para adicionar seus itens!</li>
+      </ol>
+    </p>
+    <q-toolbar class="q-pt-md bg-primary text-white">
+      <p>
+        Desenvolvido por <a href="https://ellalves.net.br" class="text-white">Ell Alves</a>. <br>
+        Direitos reservados a WebXpertise.
+      </p>
+
+    </q-toolbar>
   </q-page>
 </template>
 
@@ -10,71 +40,45 @@
 
 <script>
 // import { mapActions } from 'vuex'
+var wentOffline, wentOnline
+function handleConnectionChange (event) {
+  if (event.type === 'offline') {
+    console.log('Você perdeu a conexão.')
+    wentOffline = new Date(event.timeStamp)
+  }
+  if (event.type === 'online') {
+    console.log('Você está agora de volta online.')
+    wentOnline = new Date(event.timeStamp)
+    console.log('Você estava off-line para ' + (wentOnline - wentOffline) / 1000 + ' segundos')
+  }
+  console.log(new Date(event.timeStamp))
+}
+window.addEventListener('online', handleConnectionChange)
+window.addEventListener('offline', handleConnectionChange)
+
 export default {
   name: 'PageIndex',
 
   created () {
-    // this.createDB()
-    // this.read()
+    // this.loaded()
   },
 
   data () {
     return {
       // db: null,
-      IMEI: window.device === void 0 ? 'Espere ... localizando seu dispositivo mobile/tablet' : window.device
     }
   },
 
+  computed: {
+  },
+
   methods: {
-    // createDB () {
-    //   try {
-    //     this.db = openDatabase('myShoppingdb', '1.0', 'db app compras', 2 * 1024 * 1024)
-    //     this.db.transaction(function (tx) {
-    //       tx.executeSql('CREATE TABLE IF NOT EXISTS tasks (task_id INTEGER PRIMARY KEY ASC, task_name VARCHAR(200))')
-    //     })
-    //   } catch (err) {
-    //     alert('Deu merda na criação do BD')
+    // loaded () {
+    //   if (navigator.onLine) {
+    //     console.log('online')
+    //   } else {
+    //     console.log('offline')
     //   }
-    //   console.log('Banco foi criado e aberto!')
-    // },
-    // ...mapActions('tasks', ['promessQuery']),
-    // create (name) {
-    //   this.promessQuery('INSERT INTO tasks(task_value) VALUES (' + name + ')').then((res) => {
-    //     console.log('Insert', res)
-    //   })
-    // },
-
-    // update (id, name) {
-    //   this.promessQuery('UPDATE tasks SET task_value = "' + name + '" WHERE task_id = ' + id).then((res) => {
-    //     console.log('Insert', res)
-    //   })
-    // },
-
-    // delete (id, name) {
-    //   this.promessQuery('DELETE FROM tasks WHERE task_id = ' + id).then((res) => {
-    //     console.log('Insert', res)
-    //   })
-    // },
-
-    // read () {
-    //   this.promessQuery('SELECT * FROM tasks').then((res) => {
-    //     console.log('res', res.rows)
-    //   })
-    // this.db.transaction(function (tx) {
-    //   tx.executeSql('SELECT * FROM tasks', [], function (tx, results) {
-    //     let len = results.rows.length
-    //     let res = []
-    //     for (let i = 0; i < len; i++) {
-    //       let task = {
-    //         id: results.rows.item(i).task_id,
-    //         name: results.rows.item(i).task_name
-    //       }
-    //       res.push(task)
-    //       console.log(results.rows.item(i))
-    //     }
-    //     return res
-    //   })
-    // })
     // }
   }
 }
